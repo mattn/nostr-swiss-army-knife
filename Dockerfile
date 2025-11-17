@@ -9,7 +9,7 @@ RUN git clone --branch v0.16.2 https://github.com/fiatjaf/nak.git .
 RUN go mod download
 RUN go mod tidy
 
-RUN CGO_ENABLED=0 GOARCH=arm64 go build -ldflags "-s -w" -o nak .
+RUN CGO_ENABLED=0 GOARCH=amd64 go build -ldflags "-s -w" -o nak .
 
 FROM alpine:3.20
 
