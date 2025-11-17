@@ -1,6 +1,6 @@
 FROM golang:1.24-alpine AS builder
 
-RUN apk add --no-cache git
+RUN apk add --no-cache git upx
 
 WORKDIR /src
 
@@ -11,6 +11,7 @@ RUN go mod tidy
 
 RUN CGO_ENABLED=0 GOARCH=amd64 go build -ldflags "-s -w" -o nak .
 
+RUN upx nak
 FROM alpine:3.20
 
 RUN apk add --no-cache jq curl
