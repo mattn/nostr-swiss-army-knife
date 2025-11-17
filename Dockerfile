@@ -18,4 +18,4 @@ RUN apk add --no-cache jq curl
 COPY --from=builder /src/nak /usr/local/bin/nak
 RUN chmod +x /usr/local/bin/nak
 
-ENTRYPOINT ["/bin/sh"]
+CMD ["/bin/sh"]
